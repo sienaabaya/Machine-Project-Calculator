@@ -1,0 +1,23 @@
+table{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+#answerBox{
+	background-color: white;
+}
+
+tr.buttons td{
+	width: 10%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-image: -webkit-linear-gradient(top,#7d7e7d 0%,#0e0e0e 100%);
+	color: white;
+}
+
+tr.buttons td:hover{
+	background-image: -webkit-linear-gradient(top,#45484d 0%, #000000 100%);
+}
+
+tr.hidden{
+	//display: none;
+}

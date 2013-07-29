@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="CalculatorStyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="CalculatorScript.js"></script>	
+	</head>
+
+	<body>
+		<table border="2" width="400" height="400">
+			<tr align='right'>
+				<td id="answerBox" colspan='5' data-input= ''></td>
+			</tr>
+			<tr class='buttons' align='center'>
+				<td id="ce" colspan='2'>CE</td>
+				<td id="del" colspan='2'>DEL</td>
+				<td id="posNeg">+/-</td>
+			</tr>
+
+			<tr class='buttons' align='center'>
+				<td class='num' data-input= '7'>7</td>
+				<td class='num' data-input= '8'>8</td>
+				<td class='num' data-input= '9'>9</td>
+				<td class='operator' id='divide'>/</td>
+				<td class='operator' id='modulo'>%</td>
+			</tr>
+
+			<tr class='buttons' align='center'>
+				<td class='num' data-input= '4'>4</td>
+				<td class='num' data-input= '5'>5</td>
+				<td class='num' data-input= '6'>6</td>
+				<td class='operator' id='multiply'>*</td>
+				<td class='operator' id='expo'>^</td>
+			</tr>
+
+			<tr class='buttons' align='center'>
+				<td class='num' data-input= '1'>1</td>
+				<td class='num' data-input= '2'>2</td>
+				<td class='num' data-input= '3'>3</td>
+				<td class='operator' id='subtraction'>-</td>
+				<td id='addition' class='operator'>+</td>
+			</tr>
+
+			<tr class='buttons' align='center'>
+				<td class='num' data-input= '0'>0</td>
+				<td class= 'num'id='dec' data-input='.'>.</td>
+				<td id='answer' data-operator='' colspan='3'>=</td>
+			</tr>
+
+			<tr class='hidden'>
+				<td id='prevNum'>-</td>
+				<td id='hiddenOp'></td>
+				<td id='latestInput'></td>
+
+			</tr>
+
+		</table>
+	</body>
+</html>
