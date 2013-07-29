@@ -1,5 +1,16 @@
+body{
+	background:url(math.jpg);
+	background-repeat: repeat;
+}
 table{
 	background-color: rgba(0, 0, 0, 0.1);
+	margin-left:auto; 
+    margin-right:auto;
+    margin-top: 100px;
+    margin-bottom: auto;
+    table-layout:fixed;
+	word-wrap:break-word;
+	font-family: 'Rye', cursive;
 }
 #answerBox{
 	background-color: white;
@@ -7,9 +18,9 @@ table{
 
 tr.buttons td{
 	width: 10%;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
 	background-image: -webkit-linear-gradient(top,#7d7e7d 0%,#0e0e0e 100%);
 	color: white;
 }
@@ -19,5 +30,5 @@ tr.buttons td:hover{
 }
 
 tr.hidden{
-	//display: none;
+	display: none;
 }

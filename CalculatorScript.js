@@ -33,25 +33,79 @@ $(document).ready(function(){
 
 	$(this).on('click','.operator',function(){
 		lastChar = $('#answerBox').text().slice(-1);
-		prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-2);
-		operator = $(this).text();
+		prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-1);
 		$('#answerBox').text(currentNum+operator)
 		$('#hiddenOp').text($(this).text());
 		$('#prevNum').text(currentNum);
-	/*	if(prevInput == '+'||prevInput == '-'||prevInput == '*'||prevInput == '/'||prevInput == '%' &&
-			lastChar == '+'||lastChar == '-'||lastChar == '*'||lastChar == '/'||lastChar == '%'){
-			$('#answerBox').text().slice(0,$('#answerBox').text().lenth -1);
+		operator =$('#hiddenOp').text();
+		console.log(prevInput);
+		if(anOp(prevInput)&&anOp(lastChar)){
+			prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-1);
+			console.log('same op');
+			$('#answerBox').text($('#answerBox').text().slice(0,$('#answerBox').text().length -2));
+			currentNum = $('#answerBox').text();
+			$('#answerBox').text(currentNum+operator);
 		}else{
 			$('#answerBox').text(currentNum+operator)
-		}*/
-		
+		}
+		prevNum = currentNum;
 		currentNum = $('#answerBox').text();
 	});
 	
 	$(this).on('click','#answer', function(){
 		$('#answerBox').text(eval($('#answerBox').text()));
-		currentNum='';
+		currentNum=$('#answerBox').text();
 	});
 	
-});
+	$(this).on('click', '#ac', function(){
+		$('#answerBox').text('');
+		$('#prevNum').text('-');
+		$('#hiddenOp').text('');
+		$('#latestInput').text('');
+		currentNum='';
+		operator='';
+		prevNum='';
+	});
 
+	$(this).on('click', '#del',function(){
+		$('#answerBox').text($('#answerBox').text().slice(0,$('#answerBox').text().length -1));
+		currentNum = $('#answerBox').text();
+	});
+
+	$('html').keypress(function(e){
+
+		if(e.keyCode<58 && e.keyCode>47|| e.keyCode == 46){
+			$('#answerBox').text($('#answerBox').text()+String.fromCharCode(e.keyCode));
+			currentNum=$('#answerBox').text();
+		}else if(e.keyCode == 61 || e.keyCode == 13){
+			$('#answer').click();
+		}else if((e.keyCode<48 && e.keyCode>41 || e.keyCode == 37)&&e.keyCode != 44 &&e.keyCode != 46){
+			lastChar = $('#answerBox').text().slice(-1);
+			prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-1);
+			operator =String.fromCharCode(e.keyCode);
+			$('#answerBox').text(currentNum+operator)
+			$('#hiddenOp').text(String.fromCharCode(e.keyCode));
+			$('#prevNum').text(currentNum);
+				if(anOp(prevInput)&&anOp(lastChar)){
+					prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-1);
+					console.log('same op');
+					$('#answerBox').text($('#answerBox').text().slice(0,$('#answerBox').text().length -2));
+					currentNum = $('#answerBox').text();
+					$('#answerBox').text(currentNum+operator);
+				}else{
+					$('#answerBox').text(currentNum+operator)
+				}
+			prevNum = currentNum;
+			currentNum = $('#answerBox').text();
+		}else{	
+		}
+		
+	});
+
+	$('html').bind('keydown',function(e){
+		if(e.keyCode == 8)
+			$('#del').click();
+	});
+	
+
+});
