@@ -1,9 +1,5 @@
 function anOp(i){
-	if(i == '+' ||i == '-' ||i == '*' ||i == '/' ||i == '%' ||i == '^' ){
-	return true;
-	}else{
-	return false;
-	}
+	return ['+','-','*','/','%'].indexOf(i) != -1;
 }
 $(document).ready(function(){
 	var num;
@@ -25,21 +21,20 @@ $(document).ready(function(){
 			}
 		currentNum = $('#answerBox').text();
 	}
-	function enterNumber(){
-			$('#answerBox').text(currentNum+''+num);
+	function enterNumber(number){
+			$('#answerBox').text(currentNum+''+number);
 			currentNum= $('#answerBox').text();
 			prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-2);
-			if((anOp(prevInput) || prevInput=='') && num=='0'){
+			if((anOp(prevInput) || prevInput=='') && number=='0'){
 				$('#answerBox').text($('#answerBox').text().slice(0,$('#answerBox').text().length -1));
 				currentNum = $('#answerBox').text();
-			}else if(prevInput=='.' && num=='.'){
+			}else if(prevInput=='.' && number=='.'){
 				$('#answerBox').text($('#answerBox').text().slice(0,$('#answerBox').text().length -1));
 				currentNum = $('#answerBox').text();
 			}
 		}	
 	$(this).on('click','.num',function(){		
-			num = $(this).data('input');
-			enterNumber();
+			enterNumber($(this).text());
 	});
 	$(this).on('click','.operator',function(){
 		$('#hiddenOp').text($(this).text());
@@ -70,8 +65,7 @@ $(document).ready(function(){
 	$('html').keypress(function(e){
 		if((e.keyCode<58 && e.keyCode>45)&& e.keyCode!=47){
 			try{
-				num=String.fromCharCode(e.keyCode);
-				enterNumber();
+				enterNumber(String.fromCharCode(e.keyCode));
 			}catch(err){
 				console.log(err);
 				$('#ac').click();
@@ -84,8 +78,7 @@ $(document).ready(function(){
 			evaluate();
 		}else{	
 		}	
-	});
-	$('html').bind('keydown',function(e){
+	}).bind('keydown',function(e){
 		if(e.keyCode == 8)
 			$('#del').click();
 
