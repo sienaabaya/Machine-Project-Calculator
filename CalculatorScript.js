@@ -12,7 +12,6 @@ $(document).ready(function(){
 	var lastChar='';
 	var prevInput='';
 	function evaluate(){
-	
 		lastChar = $('#answerBox').text().slice(-1);
 		prevInput = $('#answerBox').text().charAt($('#answerBox').text().length-1);
 		$('#answerBox').text(currentNum+operator)
@@ -38,11 +37,9 @@ $(document).ready(function(){
 				currentNum = $('#answerBox').text();
 			}
 		}	
-	$(this).on('click','.num',function(){
-		
+	$(this).on('click','.num',function(){		
 			num = $(this).data('input');
 			enterNumber();
-
 	});
 	$(this).on('click','.operator',function(){
 		$('#hiddenOp').text($(this).text());
@@ -71,7 +68,7 @@ $(document).ready(function(){
 		currentNum = $('#answerBox').text();
 	});
 	$('html').keypress(function(e){
-		if(e.keyCode<58 && e.keyCode>45){
+		if((e.keyCode<58 && e.keyCode>45)&& e.keyCode!=47){
 			try{
 				num=String.fromCharCode(e.keyCode);
 				enterNumber();
