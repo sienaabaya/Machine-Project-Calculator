@@ -2,18 +2,20 @@ body{
 	background:url(math.jpg);
 	background-repeat: repeat;
 }
-table{
-	background-color: rgba(0, 0, 0, 0.1);
-	margin-left:auto; 
-    margin-right:auto;
-    margin-top: 100px;
-    margin-bottom: auto;
+#calculator{
+	background-color: rgba(0, 0, 0, 0.5);
+	margin:100px auto 0px auto; 
+	border: 10px solid;
+	border-color: rgba(0, 0, 0, 0.5);
+	width:400px;
+	height:400px;
     table-layout:fixed;
 	word-wrap:break-word;
 	font-family: 'Rye', cursive;
 }
 #answerBox{
 	background-color: white;
+	height: 40px;
 }
 
 tr.buttons td{
@@ -27,6 +29,14 @@ tr.buttons td{
 
 tr.buttons td:hover{
 	background-image: -webkit-linear-gradient(top,#45484d 0%, #000000 100%);
+}
+
+tr.answerField{
+	text-align: right;
+}
+
+tr.buttons{
+	text-align: center;
 }
 
 tr.hidden{
